@@ -4,4 +4,4 @@
 
 # Imagenes:
 
-![alt text](StoryBoard-1.png)
+![alt text](StoryBoard.png)
