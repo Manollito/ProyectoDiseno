@@ -13,7 +13,7 @@
 
 ## Fiabilidad
 
-6. El sistema debe de estar funcionando un 99.9% del tiempo, por lo que al año se estima que debe fallar unos 15 minutos en total.
+6. El sistema debe de estar funcionando un 99.9% del tiempo, por lo que al año se estima que debe fallar unos 10 minutos en total.
 7. El sistema solo cuando termina de realizar el análisis de los pacientes, es cuando integrará a la base de datos dicha información, evitando así fragmentar a la misma y asegurando así la integridad de los datos.
 8. En sí la información de la cual hay que tener cierto cuidado es con la que la IA consulta para poder realizar las categorizaciones de los pacientes, así que cada vez que se añade información que la IA debe procesar para entrenarse, debe existir un respaldo por si se necesitaría volver a entrar a la IA.
 
