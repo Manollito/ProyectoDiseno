@@ -9,7 +9,7 @@
 ## Escalabilidad
 
 4. Los datos que se irán acumulando por un mes, luego de eso serán eliminados de la base de datos, ya que la información solo sirve como análisis preliminar y no es relevante.
-5. El sistema debe de ser capaz de manejar más de 100 solicitudes por segundo, además que la cantidad de datos referentes a las consultas, deben de ser eliminadas las más antiguas después de un mes, con el fin de liberar espacio.
+5. El sistema debe de ser capaz de manejar más de 500 solicitudes por segundo, además que la cantidad de datos referentes a las consultas, deben de ser eliminadas las más antiguas después de un mes, con el fin de liberar espacio.
 
 ## Fiabilidad
 
