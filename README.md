@@ -4,12 +4,12 @@
 
 1. Se estima que el proceso de escaneo y visualización de los resultados en general dure aproximadamente unos 15 segundos como mínimo y como máximo unos 20 segundos.
 2. El sistema tendrá la capacidad de soportar 500 usuarios concurrentes como máximo
-3. 
+3. El principal es para en caso de caída, el sistema debe de tardar a lo sumo 1 minuto para recuperarse, además que debe evitar el uso de más del 80% de los recursos del dispositivo, con el fin de evitar que el sistema se relentice. 
 
 ## Escalabilidad
 
 4. Los datos que se irán acumulando por un mes, luego de eso serán eliminados de la base de datos, ya que la información solo sirve como análisis preliminar y no es relevante.
-5. 
+5. El sistema debe de ser capaz de manejar más de 100 solicitudes por segundo, además que la cantidad de datos referentes a las consultas, deben de ser eliminadas las más antiguas después de un mes, con el fin de liberar espacio.
 
 ## Fiabilidad
 
