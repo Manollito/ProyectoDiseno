@@ -14,7 +14,7 @@ Contiene los archivos .py para conectarse a los servicios de AWS
 
 # Ia Scanner
 
-Contiene la logica para realizar el proceso de scaneo, es la que se encarga de llamar a aws_services.sagemaker 
+Contiene la logica para realizar el proceso de scaneo, es la que se encarga de llamar a aws_services.sagemaker y obtener los videos de aws_services.s3
 
 # Payments
 
