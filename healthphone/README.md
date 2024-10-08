@@ -20,11 +20,11 @@ Contiene la logica para realizar el proceso de scaneo, es la que se encarga de l
 
 Contiene la logica para las conexiones con los distintos metodos de pago
 
-## Services
+### Services
 
 Se encargan de realizar los proceso de pago, verificar estados de pago, rembolsos...
 
-## Webhooks
+### Webhooks
 
 Se encargan de manejar las notificaciones que se reciben de los servicios de pago, como estado de una transacción o confirmacion de un pago
 
