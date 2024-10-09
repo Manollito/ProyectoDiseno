@@ -5,3 +5,4 @@ static_root
 env
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+venv
