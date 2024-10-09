@@ -1,62 +1,22 @@
-# myapp/views.py
 from django.http import JsonResponse
 from django.views import View
-from .services.stripe_service import makeStripePayment
-from .services.paypal_service import makePayPalPayment
-from .services.mercadoPago_service import makeMercadoPagoPayment
-from .services.yappy_service import makeYappyPayment
-from .webhooks.stripe_webhook import handleStripeWebhook
-from .webhooks.paypal_webhook import handlePayPalWebhook
-from .webhooks.mercadoPago_webhook import handleMercadoPagoWebhook
-from .webhooks.yappy_webhook import handleYappyWebhook
+from .webhooks.webhooks import PaymentWebhook
+import requests
 
+class WebhookView(View):
+    def post(self, request):
+        # Identificar qué servicio envió el webhook
+        service_name = request.headers.get('X-Service-Name')
+        # Instancia el servicio de pago
+        payment_webhook = PaymentWebhook()
+        
+        # Manejar la solicitud del servicio de pago
+        response = payment_webhook.handle_payment(service_name, request)
 
-########################################### PAYMENTS ###############################################
+        # Enviar los datos a la REST API para procesar la transacción y que la almacene en MySQL
+        rest_api_url = "https://api/payment/transaction"
+        response = requests.post(rest_api_url, json=transaction_data)
 
-class StripePaymentView(View):
-    def post(self, request, *args, **kwargs):
-        amount = request.POST.get('amount')
-        session = makeStripePayment(amount)
-        return JsonResponse(session)
-
-class PayPalPaymentView(View):
-    def post(self, request, *args, **kwargs):
-        amount = request.POST.get('amount')
-        payment = makePayPalPayment(amount)
-        return JsonResponse(payment)
-    
-class MercadoPagoPaymentView(View):
-    def post(self, request, *args, **kwargs):
-        amount = request.POST.get('amount')
-        payment = makeMercadoPagoPayment(amount)
-        return JsonResponse(payment)
-    
-class YappyPaymentView(View):
-    def post(self, request, *args, **kwargs):
-        amount = request.POST.get('amount')
-        payment = makeYappyPayment(amount)
-        return JsonResponse(payment)
-
-
-########################################### Webhooks #############################################
-
-
-class StripeWebhookView(View):
-    def post(self, request, *args, **kwargs):
-        response = handleStripeWebhook(request.body)
-        return JsonResponse(response)
-
-class PayPalWebhookView(View):
-    def post(self, request, *args, **kwargs):
-        response = handlePayPalWebhook(request.body)
-        return JsonResponse(response)
-    
-class MercadoPagoWebhookView(View):
-    def post(self, request, *args, **kwargs):
-        response = handleMercadoPagoWebhook(request.body)
-        return JsonResponse(response)
-    
-class YappyWebhookView(View):
-    def post(self, request, *args, **kwargs):
-        response = handleYappyWebhook(request.body)
-        return JsonResponse(response)
+        return JsonResponse({"Ok": "Webhook received"})
+     
+       
