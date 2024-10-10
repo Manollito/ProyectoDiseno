@@ -36,9 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ia_scanner',
-    'payments',
-    'rest_api',
+    'apps.healthphone',
+    'apps.scanner',
+    'apps.payments',
+    'rest_framework'
     # Agrega aquí otras aplicaciones necesarias
 ]
 
@@ -50,9 +51,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'authorization.cognito_auth.CognitoAuthMiddleware',  # Reemplaza 'myapp' con el nombre de tu aplicación
+
 ]
 
-ROOT_URLCONF = 'healthphone.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -70,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'healthphone.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -81,7 +84,7 @@ DATABASES = {
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),  # Por ejemplo, 'mydbinstance.c9akciq32.rds.amazonaws.com'
-        'PORT': config('DB_PORT', default='3306'),
+        'PORT': config('DB_PORT'), 
     }
 }
 

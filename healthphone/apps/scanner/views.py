@@ -14,7 +14,6 @@ class VideoEvaluationView(APIView):
         # Descargar el video desde S3
            
         # Procesar el video con SageMaker
-           
         return Response({"result": "result"}, status=status.HTTP_200_OK)
 
 
@@ -30,5 +29,5 @@ class VideoEvaluationView(APIView):
      
         # Obtener la respuesta de SageMaker
         result = ""
-        
+
         return result
