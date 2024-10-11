@@ -6,7 +6,7 @@ class CognitoAuthMiddleware:
         self.get_response = get_response
        # self.cognito_service = CognitoService()  # Inicializa el servicio de Cognito
         # Rutas excluidas
-        self.exempt_urls = [
+        self.exclude_urls = [
           
         ]
 

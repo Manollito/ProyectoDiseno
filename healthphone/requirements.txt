@@ -20,3 +20,5 @@ python-decouple==3.5  # Para manejar variables de entorno
 python-dateutil==2.8.2  # Manipulación de fechas
 pytz==2023.3  # Manejo de zonas horarias
 setuptools  # Asegurarse de que setuptools esté instalado
+django-extensions
+pydotplus

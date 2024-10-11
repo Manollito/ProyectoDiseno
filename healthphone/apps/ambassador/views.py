@@ -4,7 +4,7 @@ from aws_services.s3_service import  S3Service
 from payments.services.services import  PaymentService
 
 # Vista para subir el archivo a S3
-class VideoUploadS3View(View):
+class VideoUploadView(View):
     def post(self, request):
        
         video_file = request.FILES['video']
