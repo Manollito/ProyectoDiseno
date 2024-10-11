@@ -99,6 +99,12 @@ AWS_S3_OBJECT_PARAMETERS = {
 }
 AWS_DEFAULT_ACL = None
 
+# AWS SQS Configuration
+AWS_SQS_URL = config('AWS_SQS_URL')
+
+# AWS SNS Configuration
+AWS_SNS_TOPIC_ARN = config('AWS_SNS_TOPIC_ARN')
+
 # Static files settings
 STATIC_URL = 'https://{}/'.format(AWS_S3_CUSTOM_DOMAIN)  # Sirve los archivos estáticos desde S3
 

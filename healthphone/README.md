@@ -1,4 +1,11 @@
-# Healthphone
+# Diagrama
+
+
+![alt text](image.png)
+
+
+
+# Config
 
 Contiene los archivos necesarios para funcionamiento de django, urls, settings...
 
@@ -29,6 +36,6 @@ Se encargan de realizar los proceso de pago, verificar estados de pago, rembolso
 Se encargan de manejar las notificaciones que se reciben de los servicios de pago, como estado de una transacción o confirmacion de un pago
 
 
-# Rest Api 
+# Healthphone
 
-Es la rest api principal la cual tiene los endpoints que son llamados por el cliente y que se encarga de comunicarse con los servicios de autenticacion aws_services.cognito y otros servicios necesarios
+Es la api que se encarga de subir los videos a S3 y cargar los datos de registro de organizaciones a MySQL
