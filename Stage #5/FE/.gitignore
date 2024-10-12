@@ -1,10 +1,10 @@
-#Gradle files
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
 
 ### IntelliJ IDEA ###
-.idea/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -13,6 +13,8 @@ build/
 *.iml
 *.ipr
 out/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
 ### Kotlin ###
 .kotlin
@@ -35,18 +37,6 @@ bin/
 /dist/
 /nbdist/
 /.nb-gradle/
-
-#Logs
-*.log
-
-#Pngs usados
-*.png
-
-# Android-specific
-local.properties
-*.keystore
-**/build/
-captures
 
 ### VS Code ###
 .vscode/
