@@ -1,0 +1,171 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
+  <diagram id="yd9aTgVnivIJkrsg6VLa" name="Página-1">
+    <mxGraphModel dx="1890" dy="1025" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ElUeNTri3LY7m_GMX26O-1" value="" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=110;tabHeight=20;tabPosition=left;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="70" y="40" width="500" height="960" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-2" value="Capas de Frontend de la aplicación" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="267.5" y="64" width="195" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-4" value="Controla la interface y la interacción del usuario" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=22;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=250.09;exitDy=45;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-27" target="ElUeNTri3LY7m_GMX26O-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="442.40999999999985" y="142" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-8" value="Maneja autenticación de usuario (iniciar sesión, registro) y autorización con AWS Cognito." style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=22;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="280" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=250.09;exitDy=73;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-31" target="ElUeNTri3LY7m_GMX26O-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="439.90999999999985" y="290" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-11" value="Administra comunicación con servicios externos, como el Rest API" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=22;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="600" y="390" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=232.50000000000003;exitDy=42;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;endArrow=none;endFill=0;" edge="1" parent="1" target="ElUeNTri3LY7m_GMX26O-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="431.1099999999999" y="462.0000000000001" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-14" value="Almacena y controla datos de la aplicación, modelos, y datos locales almacenados." style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=22;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="610" y="545" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=250.09;exitDy=76.5;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-42" target="ElUeNTri3LY7m_GMX26O-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="431.1099999999999" y="657" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="449" y="660" />
+              <mxPoint x="529" y="660" />
+              <mxPoint x="529" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-17" value="Controla interacción con la cámara del dispositivo para capturar los datos&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=22;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="610" y="645" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=250.09;entryDy=76.5;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-17" target="ElUeNTri3LY7m_GMX26O-50">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="392.5" y="892" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-21" value="&lt;div&gt;Maneja tareas en el background, como sincronización de datos, proceso y envío de datos.&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=22;verticalAlign=top;align=center;" vertex="1" parent="1">
+          <mxGeometry x="610" y="755" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0;entryDx=250.09;entryDy=55;entryPerimeter=0;endArrow=none;endFill=0;dashed=1;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-21" target="ElUeNTri3LY7m_GMX26O-54">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="431.1099999999999" y="924.9999999999998" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="560" y="790" />
+              <mxPoint x="560" y="920" />
+              <mxPoint x="449" y="920" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-27" value="UI/Presentación" style="shape=folder;fontStyle=1;tabWidth=120;tabHeight=18;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;whiteSpace=wrap;fillColor=#3C97A7;" vertex="1" parent="1">
+          <mxGeometry x="198.61" y="94" width="250.09" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-28" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;whiteSpace=wrap;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-27">
+          <mxGeometry width="250.09" height="88.2" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-29" value="Pantallas: Login, Registro, MostrarDatos" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#3c97a7;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-27">
+          <mxGeometry x="21.83" y="26" width="206.44" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-30" value="Kotlin, Jetpack Compose" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#3c97a7;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-27">
+          <mxGeometry x="21.82" y="79" width="206.44" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-31" value="Autenticación y Autorización" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=20;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;whiteSpace=wrap;fillColor=#48a771;" vertex="1" parent="1">
+          <mxGeometry x="198.61" y="250" width="250.09" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-32" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;whiteSpace=wrap;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-31">
+          <mxGeometry width="250.09" height="93.10000000000001" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-33" value="AWS Cognito Client" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#48A771;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-31">
+          <mxGeometry x="21.83" y="27.444444444444446" width="206.44" height="52.77777777777778" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-34" value="Control de Sesión" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#48A771;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-31">
+          <mxGeometry x="21.82" y="83.38888888888889" width="206.44" height="46.44444444444444" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=98.99999999999999;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=76.5;entryPerimeter=0;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-27" target="ElUeNTri3LY7m_GMX26O-31">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="193" />
+              <mxPoint x="170" y="326" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-37" value="Comunicación de redes" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=20;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;whiteSpace=wrap;fillColor=#a75f0d;" vertex="1" parent="1">
+          <mxGeometry x="198.61" y="410" width="250.09" height="133" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-38" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;whiteSpace=wrap;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-37">
+          <mxGeometry width="250.09" height="93.10000000000001" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-39" value="Ktor Http Client" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#a75f0d;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-37">
+          <mxGeometry x="21.83" y="27.444444444444446" width="206.44" height="52.77777777777778" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-40" value="API Requests to Django Client" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#a75f0d;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-37">
+          <mxGeometry x="21.82" y="83.38888888888889" width="206.44" height="46.44444444444444" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=72;exitPerimeter=0;entryX=0;entryY=0;entryDx=0;entryDy=76.5;entryPerimeter=0;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-27" target="ElUeNTri3LY7m_GMX26O-37">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="166" />
+              <mxPoint x="150" y="487" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-42" value="Modelos/Datos" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=20;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;whiteSpace=wrap;fillColor=#a73fa4;" vertex="1" parent="1">
+          <mxGeometry x="198.61" y="590" width="250.09" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-43" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;whiteSpace=wrap;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-42">
+          <mxGeometry width="250.09" height="63.000000000000014" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-44" value="Modelos: Organizacion, Subscripcion" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#a73fa4;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-42">
+          <mxGeometry x="21.83" y="33.69" width="206.44" height="46.31" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=95;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ElUeNTri3LY7m_GMX26O-42" target="ElUeNTri3LY7m_GMX26O-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-50" value="Camara" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=20;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;whiteSpace=wrap;fillColor=#80db0a;" vertex="1" parent="1">
+          <mxGeometry x="198.61" y="710" width="250.09" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-51" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;whiteSpace=wrap;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-50">
+          <mxGeometry width="250.09" height="84" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-52" value="Camera Controller" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#80db0a;jettyWidth=22;jettyHeight=8;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-50">
+          <mxGeometry x="21.83" y="24.757894736842104" width="206.44" height="38.4" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-53" value="Image Processing" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#80db0a;jettyWidth=20;jettyHeight=8;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-50">
+          <mxGeometry x="21.83" y="69.47" width="206.44" height="40.53" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-54" value="Procesos Asincrónicos" style="shape=folder;fontStyle=1;tabWidth=190;tabHeight=20;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;whiteSpace=wrap;fillColor=#b3b3b3;" vertex="1" parent="1">
+          <mxGeometry x="198.61" y="870" width="250.09" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-55" value="" style="html=1;strokeColor=none;resizeWidth=1;resizeHeight=1;fillColor=none;part=1;connectable=0;allowArrows=0;deletable=0;whiteSpace=wrap;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-54">
+          <mxGeometry width="250.09" height="63" relative="1" as="geometry">
+            <mxPoint y="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ElUeNTri3LY7m_GMX26O-56" value="Corutinas para tareas en el background" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#b3b3b3;jettyWidth=22;jettyHeight=8;" vertex="1" parent="ElUeNTri3LY7m_GMX26O-54">
+          <mxGeometry x="21.83" y="30.6" width="206.44" height="39.4" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
