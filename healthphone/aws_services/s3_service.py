@@ -12,8 +12,9 @@ class S3Service:
         )
         self.bucket_name = settings.AWS_STORAGE_BUCKET_NAME
 
-    def upload_file(self, file, folder='uploads/'):
+    def upload_file(self, file, medical_center):
         try:
+            folder='uploads/'
             file_name = folder + str(uuid.uuid4()) + "_" + file.name
             self.s3_client.upload_fileobj(file, self.bucket_name, file_name)
             file_url = f"https://{self.bucket_name}.s3.amazonaws.com/{file_name}"

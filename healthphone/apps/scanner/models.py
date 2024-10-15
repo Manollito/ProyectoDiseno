@@ -1,6 +1,6 @@
 from django.db import models
 
-class MedicalCenterCategorization(models.Model):
+class MedicalCenterModel(models.Model):
     medical_center = models.CharField(max_length=255)  # Nombre del centro médico
     site_name = models.CharField(max_length=255)  # Nombre del sitio dentro del centro médico
     scan_type = models.CharField(max_length=255)  # Nombre del valor a escanear (temperatura...)
@@ -13,7 +13,7 @@ class MedicalCenterCategorization(models.Model):
     # scaneo para pertenecer a la clasificación (verde, 20...)
     
 
-class scanResult(models.Model):
+class ScanResultModel(models.Model):
     scan_type_id = models.IntegerField() # Id del valor a escanear (temperatura...)
     subscription_id = models.IntegerField() # Id de la subscripción
     scan_date = models.DateField() # Fecha del scaneo

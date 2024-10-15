@@ -9,7 +9,7 @@ class Worker:
         self.sqs_service = SQSService()
         self.sns_service = SNSService()
 
-    def start(self):
+    def process_scan(self):
         # Proceso que se queda escuchando la cola SQS
         while True:
             message = self.sqs_service.receive_message()

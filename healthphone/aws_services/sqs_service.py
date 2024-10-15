@@ -6,10 +6,10 @@ class SQSService:
         self.queue_url = settings.AWS_SQS_URL  # Reemplaza con la URL de tu cola SQS
 
     # Enviar mensaje a la cola
-    def send_message(self, message_body):
+    def send_message(self, message):
         response = self.sqs_client.send_message(
             QueueUrl=self.queue_url,
-            MessageBody=json.dumps(message_body)
+            MessageBody=json.dumps(message)
         )
         return response
 
