@@ -2,9 +2,9 @@ import boto3
 from aws_services.sagemaker_service import SageMakerService
 from aws_services.sqs_service import SQSService
 from aws_services.sns_service import SNSService
-from services import CategorizationService
+from .services.categorization_service import CategorizationService
 
-class Consumer:
+class Worker:
     def __init__(self):
         self.sqs_service = SQSService()
         self.sns_service = SNSService()
@@ -16,7 +16,7 @@ class Consumer:
             
             if message:
                 video = message['Video']
-                medical_center = message['video = message']
+                medical_center = message['medical_center']
                 
                 # Llamar a SageMaker para evaluar el video
                 sagemaker_service = SageMakerService()

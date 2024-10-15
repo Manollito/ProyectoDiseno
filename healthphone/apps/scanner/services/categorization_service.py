@@ -8,6 +8,15 @@ class CategorizationService:
         categorization_method = MedicalCenterRepository.get_categorization_method(medical_center)
         
         # Proceso de categorización con el método adecuado
-        # En este caso, simplemente retorna el resultado categorizado
-        return {"status": "Categorización completada", "result": evaluation_data}
+        
+        for measure in categorization_method:
+      
+           # Se recorren los diferentes measures del centro medico con sus respectivos valores min y max
+           # y se categoriza
+           
+           break
+
+        result = ""
+        
+        return {"status": "Categorización completada", "result": result}
         

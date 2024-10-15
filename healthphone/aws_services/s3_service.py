@@ -21,9 +21,20 @@ class S3Service:
         except Exception as e:
             return {'error': str(e)}
 
-    def download_file(self, file_key):
+    def download_video(self, video_key):
         try:
-            file_obj = self.s3_client.get_object(Bucket=self.bucket_name, Key=file_key)
+            file_obj = self.s3_client.get_object(Bucket=self.bucket_name, Key=video_key)
             return file_obj['Body'].read()
         except Exception as e:
             return {'error': str(e)}
+    
+    # Función para obtener el nombre del centro médico
+    def download_medical_center_data(self, video_key):
+        try:
+            response = self.s3_client.head_object(Bucket=self.bucket_name, Key=video_key)
+            # Obtener el nombre del centro médico de los metadatos (suponiendo que esté allí)
+            medical_center_name = response['Metadata'].get('medical-center', 'Desconocido')
+            return medical_center_name
+        except Exception as e:
+          print(f"Error al obtener metadatos: {e}")
+        return None

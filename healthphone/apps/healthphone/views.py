@@ -8,7 +8,7 @@ class VideoUploadS3View(View):
     def post(self, request):
        
         video_file = request.FILES['video']
-        centro_medico = request["centro_medico"]
+        centro_medico = request["medical_center"]
 
         # Usar S3Service para subir el archivo
         s3_service = S3Service()

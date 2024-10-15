@@ -12,7 +12,7 @@ class SageMakerService:
         )
         self.endpoint_name = settings.SAGEMAKER_ENDPOINT_NAME
 
-    def invoke_model(self, video, categorization_method):
+    def invoke_model(self, video):
         
         result = {"result": "result"}
         

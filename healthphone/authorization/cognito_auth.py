@@ -5,14 +5,14 @@ class CognitoAuthMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
        # self.cognito_service = CognitoService()  # Inicializa el servicio de Cognito
-        # Rutas excluidas
+        # Rutas excluidas (webhooks de payments)
         self.exclude_urls = [
           
         ]
 
     def __call__(self, request):
         # Verificar si la ruta actual está en la lista de excepciones
-        """if request.path in self.exempt_urls or request.method == 'OPTIONS':
+        """if request.path in self.exclude_urls or request.method == 'OPTIONS':
             return self.get_response(request)
 
         token = request.headers.get('Authorization')
