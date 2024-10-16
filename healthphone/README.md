@@ -1,7 +1,7 @@
 # Diagrama
 
 
-![alt text](image.png)
+![alt text](diagrama.png)
 
 
 
