@@ -10,15 +10,15 @@ sin embargo, estamos durando debido a que queremos checar primero la usabilidad 
 
 * **Pantalla Login:**
 
-![img.png](FE/src/main/resources/login.png)
+![img.png](login.png)
 * **Pantalla Registro:**
 
-![img.png](FE/src/main/resources/registerPt1.png)
+![img.png](registerPt1.png)
 
-![img.png](FE/src/main/resources/registerPt2.png)
+![img.png](registerPt2.png)
 * **Pantalla de Muestra de Datos:**
 
-![img.png](FE/src/main/resources/data.png)
+![img.png](data.png)
 
 
 ## Diagrama de capas
@@ -30,7 +30,7 @@ Acá tenemos documentado nuestro diagrama de capas usado para el desarrollo de l
 Trabajamos en un proyecto en Kotlin, usando el editor IntelliJ con Gradle.
 Con base a ésto se genera la siguiente estructura del boilerplate.
 
-![img.png](FE/src/main/resources/img.png)
+![img.png](img.png)
 
 * **gradle/**: Contiene archivos del wrapper de Gradle, como `gradle-wrapper.jar` y `gradle-wrapper.properties`, los
 cuales permiten usar una versión específica de Gradle sin necesidad de instalarla globalmente en cada máquina.
