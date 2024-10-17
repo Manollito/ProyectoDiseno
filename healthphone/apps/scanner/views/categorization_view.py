@@ -9,6 +9,9 @@ from aws_services.sns_service import SNSService
 
 
 class CategorizationView(APIView):
+    
+    sns_service = SNSService()
+    
     def post(self, request):
 
         client_id = request.data.get('client_id')  # Id del cliente al que se notifica por SNS
@@ -17,8 +20,7 @@ class CategorizationView(APIView):
         
         categorization_result = CategorizationService.categorize(scan_result, medical_center)
         
-        sns_service = SNSService()
-        sns_service.notify_client(categorization_result, client_id)
+        self.sns_service.notify_client(categorization_result, client_id)
 
         return HttpResponse(status=204)  # 204 No Content
 

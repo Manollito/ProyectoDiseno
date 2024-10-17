@@ -6,7 +6,12 @@ from django.conf import settings
 import tempfile
 from aws_services.sqs_service import  SQSService
 
+
 class ScannerView(APIView):
+    
+    # Definir el servicio SQS como un atributo de clase
+    sqs_service = SQSService()
+    
     def post(self, request):
 
         client_id = request.data.get('client_id')  # Id del cliente al que se notifica por SNS
@@ -14,8 +19,8 @@ class ScannerView(APIView):
         object_key = request.data.get('object_key')
     
         # Enviar el resultado del scaneo a la cola de sqs
-        """sqs_service = SQSService()
-        message = {
+        
+        """message = {
             'client_id': client_id,
             'bucket': bucket,
             'object_key': object_key

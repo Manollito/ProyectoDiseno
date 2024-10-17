@@ -12,19 +12,3 @@ class SQSService:
             MessageBody=json.dumps(message)
         )
         return response
-
-    # Recibir mensaje de la cola
-    def receive_message(self):
-        response = self.sqs_client.receive_message(
-            QueueUrl=self.queue_url,
-            MaxNumberOfMessages=1,
-            WaitTimeSeconds=10  # Tiempo de espera para mensajes
-        )
-        return response.get('Messages', [])
-    
-    # Eliminar el mensaje de SQS después de procesarlo
-    def delete_message(self, receipt_handle):
-        self.client.delete_message(
-            QueueUrl=self.queue_url,
-            ReceiptHandle=receipt_handle
-        )
