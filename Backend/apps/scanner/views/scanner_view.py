@@ -10,7 +10,7 @@ from aws_services.sqs_service import  SQSService
 class ScannerView(APIView):
     
     # Definir el servicio SQS como un atributo de clase
-    sqs_service = SQSService()
+    #sqs_service = SQSService()
     
     def post(self, request):
 

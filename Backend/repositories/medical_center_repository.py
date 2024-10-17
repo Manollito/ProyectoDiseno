@@ -1,4 +1,4 @@
-from apps.scanner.models import MedicalCenterModel
+from apps.scanner.models.medical_center_model import MedicalCenterModel
 
 class MedicalCenterRepository:     
     

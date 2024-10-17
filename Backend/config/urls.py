@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.scanner.views import VideoEvaluationView
+from apps.scanner.views.scanner_view import  ScannerView
+from apps.scanner.views.categorization_view import  CategorizationView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('evaluate-video/', VideoEvaluationView.as_view(), name='evaluate_video'),
+    path('scan_patient/', ScannerView.as_view(), name='scan'),
+    path('categorize-patient/', CategorizationView.as_view(), name='categorize'),
 ]

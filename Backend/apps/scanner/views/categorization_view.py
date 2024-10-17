@@ -4,13 +4,13 @@ from rest_framework.views import APIView
 from django.http import HttpResponse
 from django.conf import settings
 import tempfile
-from categorization_service import CategorizationService
+from apps.scanner.categorization_service import CategorizationService
 from aws_services.sns_service import SNSService
 
 
 class CategorizationView(APIView):
     
-    sns_service = SNSService()
+    #sns_service = SNSService()
     
     def post(self, request):
 
