@@ -1,7 +1,10 @@
 from repositories.medical_center_repository import MedicalCenterRepository
+from repositories.scan_repository import  ScanRepository
+
 
 class CategorizationService:
-  
+    
+    @staticmethod
     def categorize(self, evaluation_data, medical_center):
        
         # Obtener el método de categorización del centro médico
@@ -20,5 +23,7 @@ class CategorizationService:
 
         result = ""
         
-        return {"status": "Categorización completada", "result": result}
+        ScanRepository.set_scan_result("scan_type_id", "subscription_id", "scan_date", "result")  
+
+        return {"result": result}
         
