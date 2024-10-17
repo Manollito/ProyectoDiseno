@@ -1,13 +1,11 @@
-version: '3'
-
 services:
-  # Backend Django (API REST)
+  # Backend
   healthphone:
     build:
-      context: ../python  
-    command: gunicorn drf.wsgi:application --bind 0.0.0.0:8000
+      context: ../Backend 
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - ../python/django:/app   
+      - ../Backend:/app   
     ports:
       - "8000:8000"
     depends_on:
@@ -24,12 +22,11 @@ services:
       MYSQL_USER: user                    
       MYSQL_PASSWORD: password            
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql         
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    expose:
-      - "3306"  
+
 
 volumes:
   mysql_data:
