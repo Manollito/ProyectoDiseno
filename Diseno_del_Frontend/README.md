@@ -29,6 +29,6 @@ Acá tenemos documentado nuestro diagrama de capas usado para el desarrollo de l
 ## Boilerplate
 Acá, tenemos una descripción completa de cada uno de los folders a usar dentro del proyecto, así como su utilidad, hay que tomar en consideración que algunos fueron generados de forma automática por la creación del proyecto y no fueron quitados por su utilidad.
 
-![BoilerplateInfo](Boilerplate/FE/README.md)
+[Ver Documentación del Boilerplate](Boilerplate/FE/README.md)
 
 
