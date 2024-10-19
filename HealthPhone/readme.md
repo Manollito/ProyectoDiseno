@@ -2,7 +2,7 @@
 
 A continuación se añade una imagen de cada una de las tablas generadas y sus relaciones:
 
-![alt text](Images/DataV3.png)
+![alt text](Images/DataV4.png)
 
 Ahora, considerando las tablas anteriores, se procederá a llenarlas con datos con el fin de ejemplificarlo:
 
