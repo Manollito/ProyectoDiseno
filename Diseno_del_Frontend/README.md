@@ -23,7 +23,7 @@ Dado que aún estan en progreso, acá las páginas base, hechas en la aplicació
 
 #### 2. Pantalla Resultados:
 
-![Pagina Resultados](UI/image.png)
+![Pagina Resultados](UI/resultados.png)
 
 **Descripción:**
 - **Estado Inicial:** Muestra los resultados del escaneo con un título y una lista de valores.
