@@ -1,3 +1,10 @@
+## Tabla de contenidos
+- [Descripción del Boilerplate](#descripción-del-boilerplate)
+- [Sección Root](#sección-root)
+- [Sección App](#sección-app)
+- [Sección Main](#sección-srcmain-source-code)
+- [Seccion Java](#sección-java-distribución-de-la-aplicación)
+
 # Descripción del Boilerplate
 
 Acá, tenemos una descripción completa de cada uno de los folders a usar dentro del proyecto, así como su utilidad, hay que tomar
@@ -5,10 +12,11 @@ en consideración que algunos fueron generados de forma automática por la creac
 utilidad.
 
 
+
 ## Sección Root
 Acá incluiremos todo lo ubicado en el folder Root, o FE/, todos los documentos a tomar en consideración
 
-![Root Structure]()
+![Root Structure](docs/root_structure.png)
 
 * **gradle/**: Contiene archivos del wrapper de Gradle, como `gradle-wrapper.jar` y `gradle-wrapper.properties`, los
 cuales permiten usar una versión específica de Gradle sin necesidad de instalarla globalmente en cada máquina.

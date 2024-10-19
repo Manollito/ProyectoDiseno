@@ -63,4 +63,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation("com.amazonaws:aws-android-sdk-s3:2.22.7") // Use the latest version available
+    // AWS Core library
+    implementation("com.amazonaws:aws-android-sdk-core:2.22.7") // Use the latest version available
 }
