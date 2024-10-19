@@ -4,38 +4,42 @@
 ![alt text](diagrama.png)
 
 
+# Capas
 
-# Config
+## Config
 
 Contiene los archivos necesarios para funcionamiento de django, urls, settings...
 
 En settings se definen las configuraciones para la conexión a la base de datos y AWS.
 
 
-# AWS Services
+## AWS Services
 
 Contiene los archivos .py para conectarse a los servicios de AWS
-- SageMaker
+- SNS
 - Cognito
-- S3
+- SQS
 
-# Ia Scanner
+## Apps
 
-Contiene la logica para realizar el proceso de scaneo, es la que se encarga de llamar a aws_services.sagemaker y obtener los videos de aws_services.s3
+Es la capa que contiene los servicios principales de la app
 
-# Payments
+### Scanner
+
+Contiene la lógica principal del scanner, tiene los endpoints necesarios para comunicarse con el cliente y servicios de terceros (AWS)
+Tiene los modelos y vistas correspondientes
+
+
+### Payments
 
 Contiene la logica para las conexiones con los distintos metodos de pago
-
-### Services
-
-Se encargan de realizar los proceso de pago, verificar estados de pago, rembolsos...
-
-### Webhooks
-
-Se encargan de manejar las notificaciones que se reciben de los servicios de pago, como estado de una transacción o confirmacion de un pago
+Tiene los servicios para realizar los pagos y los webhooks a los cuales se notifica la realización del pago
 
 
-# Healthphone
+## Authorization
 
-Es la api que se encarga de subir los videos a S3 y cargar los datos de registro de organizaciones a MySQL
+Capa encargada de validar el token del usuario y validar si tiene los permisos necesarios
+
+## Repositories
+
+Es la capa que se encarga de comunicarse con la base de datos y extraer la información necesaria de las tablas

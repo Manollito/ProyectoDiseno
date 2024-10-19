@@ -11,3 +11,6 @@ class MedicalCenterModel(models.Model):
     # scaneo para pertenecer a la clasificación (verde, 10...)
     max_value = models.IntegerField() # Valor máximo en el que se debe de encontrar el resultado del
     # scaneo para pertenecer a la clasificación (verde, 20...)
+    
+    class Meta:
+        db_table =  'medical_center'
