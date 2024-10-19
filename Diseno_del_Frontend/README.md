@@ -42,9 +42,7 @@ Dado que aún estan en progreso, acá las páginas base, hechas en la aplicació
 | Mostrar borde rojo durante el escaneo                     | Borde alrededor de la imagen | No aplica               |
 | Cambiar a la vista de resultados tras el escaneo          | Lógica de navegación    | No aplica                  |
 | Visualizar clasificación del escaneo                      | No aplica               | Texto (Clasificación)      |
-| Visualizar temperatura corporal                           | No aplica               | Texto (Temperatura)        |
-| Visualizar frecuencia cardíaca                            | No aplica               | Texto (Frecuencia Cardíaca)|
-| Mostrar lista de resultados adicionales                   | No aplica               | LazyColumn (Resultados)    |
+| Mostrar lista de resultados                   | No aplica               | LazyColumn (Resultados)    |
 | Mostrar mensaje de "Scanning..." mientras se escanea      | Texto (Scanning...)     | No aplica                  |
 | Diseño adaptativo para diferentes tamaños de pantalla     | Box, Column, Padding    | Box, Column, LazyColumn    |
 | Botón para realizar una nueva acción o finalizar          | Botón de escaneo        | No aplica                  |
