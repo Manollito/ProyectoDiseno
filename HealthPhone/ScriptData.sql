@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `proyectov1`;
-USE `proyectov1`;
-
 CREATE TABLE `Paises` (
   `idPaises` int NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
@@ -24,7 +21,7 @@ CREATE TABLE `Direcciones` (
   `Ubicacion` point NOT NULL,
   PRIMARY KEY (`idDirecciones`),
   KEY `Direcciones_idPais_idx` (`idPais`),
-  CONSTRAINT `Direcciones_idPais` FOREIGN KEY (`idPais`) REFERENCES `paises` (`idPaises`)
+  CONSTRAINT `Direcciones_idPais` FOREIGN KEY (`idPais`) REFERENCES `Paises` (`idPaises`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Organizaciondirecciones` (
@@ -36,8 +33,8 @@ CREATE TABLE `Organizaciondirecciones` (
   PRIMARY KEY (`idOrganizacionDirecciones`),
   KEY `OrgDic_idOrganizacion_idx` (`idOrganizacion`),
   KEY `OrgDic_idDirecciones_idx` (`idDireccion`),
-  CONSTRAINT `OrgDic_idDirecciones` FOREIGN KEY (`idDireccion`) REFERENCES `direcciones` (`idDirecciones`),
-  CONSTRAINT `OrgDic_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`)
+  CONSTRAINT `OrgDic_idDirecciones` FOREIGN KEY (`idDireccion`) REFERENCES `Direcciones` (`idDirecciones`),
+  CONSTRAINT `OrgDic_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `Organizacion` (`idOrganizacion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Sitios` (
@@ -48,8 +45,8 @@ CREATE TABLE `Sitios` (
   PRIMARY KEY (`idSitio`),
   KEY `idOrganizacion_idx` (`idOrganizacion`),
   KEY `Sitio_idDireccion_idx` (`idDireccion`),
-  CONSTRAINT `Sitio_idDireccion` FOREIGN KEY (`idDireccion`) REFERENCES `direcciones` (`idDirecciones`),
-  CONSTRAINT `Sitio_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`)
+  CONSTRAINT `Sitio_idDireccion` FOREIGN KEY (`idDireccion`) REFERENCES `Direcciones` (`idDirecciones`),
+  CONSTRAINT `Sitio_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `Organizacion` (`idOrganizacion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Planes` (
@@ -112,7 +109,7 @@ CREATE TABLE `Usuarios` (
   `Contrasena` varchar(255) NOT NULL,
   PRIMARY KEY (`idOperarios`),
   KEY `idStatus_idx` (`idStatus`),
-  CONSTRAINT `Operarios_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `tiposstatus` (`idTiposStatus`)
+  CONSTRAINT `Operarios_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `TiposStatus` (`idTiposStatus`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Suscripciones` (
@@ -125,9 +122,9 @@ CREATE TABLE `Suscripciones` (
   KEY `idPlan_idx` (`idPlan`),
   KEY `idSitio_idx` (`idSitio`),
   KEY `idStatus_idx` (`idStatus`),
-  CONSTRAINT `Suscripciones_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `planes` (`idPlanes`),
-  CONSTRAINT `Suscripciones_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`),
-  CONSTRAINT `Suscripciones_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `tiposstatus` (`idTiposStatus`)
+  CONSTRAINT `Suscripciones_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `Planes` (`idPlanes`),
+  CONSTRAINT `Suscripciones_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`),
+  CONSTRAINT `Suscripciones_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `TiposStatus` (`idTiposStatus`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Plan_Calendar` (
@@ -137,7 +134,7 @@ CREATE TABLE `Plan_Calendar` (
   `FechaFin` date NOT NULL,
   PRIMARY KEY (`idPlan_Calendar`),
   KEY `Calendar_idPlanes_idx` (`idPlan`),
-  CONSTRAINT `Calendar_idPlanes` FOREIGN KEY (`idPlan`) REFERENCES `planes` (`idPlanes`)
+  CONSTRAINT `Calendar_idPlanes` FOREIGN KEY (`idPlan`) REFERENCES `Planes` (`idPlanes`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Plan_TipoEscaneo` (
@@ -145,8 +142,8 @@ CREATE TABLE `Plan_TipoEscaneo` (
   `idTipoEscaneo` int NOT NULL,
   PRIMARY KEY (`idPlan`,`idTipoEscaneo`),
   KEY `PlanTipoEscaneo_idTipoEscaneo_idx` (`idTipoEscaneo`),
-  CONSTRAINT `PlanTipoEscaneo_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `planes` (`idPlanes`),
-  CONSTRAINT `PlanTipoEscaneo_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `tipoescaneo` (`idTipoEscaneo`)
+  CONSTRAINT `PlanTipoEscaneo_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `Planes` (`idPlanes`),
+  CONSTRAINT `PlanTipoEscaneo_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `TipoEscaneo` (`idTipoEscaneo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Planes_Caracteriscticas` (
@@ -157,8 +154,8 @@ CREATE TABLE `Planes_Caracteriscticas` (
   PRIMARY KEY (`idPlanes_Caracteriscticas`),
   KEY `idPlanCaract_idPlan_idx` (`idPlan`),
   KEY `idPlanCaract_idCaract_idx` (`idCaracteristica`),
-  CONSTRAINT `idPlanCaract_idCaract` FOREIGN KEY (`idCaracteristica`) REFERENCES `caracteristicas` (`idCaracteristicas`),
-  CONSTRAINT `idPlanCaract_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `planes` (`idPlanes`)
+  CONSTRAINT `idPlanCaract_idCaract` FOREIGN KEY (`idCaracteristica`) REFERENCES `Caracteristicas` (`idCaracteristicas`),
+  CONSTRAINT `idPlanCaract_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `Planes` (`idPlanes`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Reglas` (
@@ -176,10 +173,10 @@ CREATE TABLE `Reglas` (
   KEY `idPlan_idx` (`idPlan`),
   KEY `idTipoEscaneo_idx` (`idTipoEscaneo`),
   KEY `Reglas_idTipoUnidad_idx` (`idTipoUnidad`),
-  CONSTRAINT `Reglas_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `planes` (`idPlanes`),
-  CONSTRAINT `Reglas_idTipoClasificacion` FOREIGN KEY (`idTipoClasificacion`) REFERENCES `tipoclasificacion` (`idTipoClasificacion`),
-  CONSTRAINT `Reglas_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `tipoescaneo` (`idTipoEscaneo`),
-  CONSTRAINT `Reglas_idTipoUnidad` FOREIGN KEY (`idTipoUnidad`) REFERENCES `tipounidad` (`idTipoUnidad`)
+  CONSTRAINT `Reglas_idPlan` FOREIGN KEY (`idPlan`) REFERENCES `Planes` (`idPlanes`),
+  CONSTRAINT `Reglas_idTipoClasificacion` FOREIGN KEY (`idTipoClasificacion`) REFERENCES `TipoClasificacion` (`idTipoClasificacion`),
+  CONSTRAINT `Reglas_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `TipoEscaneo` (`idTipoEscaneo`),
+  CONSTRAINT `Reglas_idTipoUnidad` FOREIGN KEY (`idTipoUnidad`) REFERENCES `TipoUnidad` (`idTipoUnidad`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Regla_Organizacion` (
@@ -189,8 +186,8 @@ CREATE TABLE `Regla_Organizacion` (
   PRIMARY KEY (`idReglaOrganizacion`),
   KEY `idOrganizacion_idx` (`idOrganizacion`),
   KEY `idRegla_idx` (`idRegla`),
-  CONSTRAINT `ReglaOrg_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`),
-  CONSTRAINT `ReglaOrg_idRegla` FOREIGN KEY (`idRegla`) REFERENCES `reglas` (`idReglasClasificacion`)
+  CONSTRAINT `ReglaOrg_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `Organizacion` (`idOrganizacion`),
+  CONSTRAINT `ReglaOrg_idRegla` FOREIGN KEY (`idRegla`) REFERENCES `Reglas` (`idReglasClasificacion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Regla_Sitio` (
@@ -200,8 +197,8 @@ CREATE TABLE `Regla_Sitio` (
   PRIMARY KEY (`idReglaSitio`),
   KEY `idSitio_idx` (`idSitio`),
   KEY `idRegla_idx` (`idRegla`),
-  CONSTRAINT `ReglaSitio_idRegla` FOREIGN KEY (`idRegla`) REFERENCES `reglas` (`idReglasClasificacion`),
-  CONSTRAINT `ReglaSitio_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`)
+  CONSTRAINT `ReglaSitio_idRegla` FOREIGN KEY (`idRegla`) REFERENCES `Reglas` (`idReglasClasificacion`),
+  CONSTRAINT `ReglaSitio_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Escaneo` (
@@ -211,7 +208,7 @@ CREATE TABLE `Escaneo` (
   `amIFaceId` int NOT NULL,
   PRIMARY KEY (`idEscaneo`),
   KEY `idSuscripcion_idx` (`idSuscripcion`),
-  CONSTRAINT `Escaneo_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`),
+  CONSTRAINT `Escaneo_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `Suscripciones` (`idSuscripciones`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `ResultadoEscaneo` (
@@ -222,8 +219,8 @@ CREATE TABLE `ResultadoEscaneo` (
   PRIMARY KEY (`idResultadoEscaneo`),
   KEY `Resultado_idEscaneo_idx` (`idEscaneo`),
   KEY `Resultado_idTipoEscaneo_idx` (`idTipoEscaneo`),
-  CONSTRAINT `Resultado_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `escaneo` (`idEscaneo`),
-  CONSTRAINT `Resultado_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `tipoescaneo` (`idTipoEscaneo`)
+  CONSTRAINT `Resultado_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `Escaneo` (`idEscaneo`),
+  CONSTRAINT `Resultado_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `TipoEscaneo` (`idTipoEscaneo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `BitacoraEscaneo` (
@@ -242,11 +239,11 @@ CREATE TABLE `BitacoraEscaneo` (
   KEY `idEscaneo_idx` (`idEscaneo`),
   KEY `Bitacora_idTipoEscaneo_idx` (`idTipoEscaneo`),
   KEY `Bitacora_idSuscripcion_idx` (`idSuscripcion`),
-  CONSTRAINT `Bitacora_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `escaneo` (`idEscaneo`),
-  CONSTRAINT `Bitacora_idOperario` FOREIGN KEY (`idOperario`) REFERENCES `usuarios` (`idOperarios`),
-  CONSTRAINT `Bitacora_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`),
-  CONSTRAINT `Bitacora_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`),
-  CONSTRAINT `Bitacora_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `tipoescaneo` (`idTipoEscaneo`)
+  CONSTRAINT `Bitacora_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `Escaneo` (`idEscaneo`),
+  CONSTRAINT `Bitacora_idOperario` FOREIGN KEY (`idOperario`) REFERENCES `Usuarios` (`idOperarios`),
+  CONSTRAINT `Bitacora_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`),
+  CONSTRAINT `Bitacora_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `Suscripciones` (`idSuscripciones`),
+  CONSTRAINT `Bitacora_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `TipoEscaneo` (`idTipoEscaneo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `InformacionContacto` (
@@ -261,10 +258,10 @@ CREATE TABLE `InformacionContacto` (
   KEY `idOperario_idx` (`idOperario`),
   KEY `idSitio_idx` (`idSitio`),
   KEY `idTipoContacto_idx` (`idTipoContacto`),
-  CONSTRAINT `InfoContacto_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`),
-  CONSTRAINT `InfoContacto_idOperario` FOREIGN KEY (`idOperario`) REFERENCES `usuarios` (`idOperarios`),
-  CONSTRAINT `InfoContacto_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`),
-  CONSTRAINT `InfoContacto_idTipoContacto` FOREIGN KEY (`idTipoContacto`) REFERENCES `tipocontacto` (`idTipoContacto`)
+  CONSTRAINT `InfoContacto_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `Organizacion` (`idOrganizacion`),
+  CONSTRAINT `InfoContacto_idOperario` FOREIGN KEY (`idOperario`) REFERENCES `Usuarios` (`idOperarios`),
+  CONSTRAINT `InfoContacto_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`),
+  CONSTRAINT `InfoContacto_idTipoContacto` FOREIGN KEY (`idTipoContacto`) REFERENCES `TipoContacto` (`idTipoContacto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Metodopago` (
@@ -284,7 +281,7 @@ CREATE TABLE `Pagos` (
   KEY `idMetodoPago_idx` (`idMetodoPago`),
   KEY `idSitio_idx` (`idSitio`),
   KEY `idSuscripcion_idx` (`idSuscripcion`),
-  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `metodopago` (`idMetodoPago`),
-  CONSTRAINT `Pagos_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`),
-  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`)
+  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `Metodopago` (`idMetodoPago`),
+  CONSTRAINT `Pagos_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`),
+  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `Suscripciones` (`idSuscripciones`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
