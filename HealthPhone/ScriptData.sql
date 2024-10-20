@@ -206,27 +206,24 @@ CREATE TABLE `Regla_Sitio` (
 
 CREATE TABLE `Escaneo` (
   `idEscaneo` int NOT NULL AUTO_INCREMENT,
-  `idTipoEscaneo` int NOT NULL,
   `idSuscripcion` int NOT NULL,
   `FechaEscaneo` datetime NOT NULL,
-  `Resultado` varchar(50) DEFAULT NULL,
-  `idStatus` int NOT NULL,
+  `amIFaceId` int NOT NULL,
   PRIMARY KEY (`idEscaneo`),
-  KEY `Escaneo_idTipoEscaneo_idx` (`idTipoEscaneo`),
-  KEY `Escaneo_idSuscripcion_idx` (`idSuscripcion`),
-  KEY `Escaneo_idStatus_idx` (`idStatus`),
-  CONSTRAINT `Escaneo_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `tiposstatus` (`idTiposStatus`),
+  KEY `idSuscripcion_idx` (`idSuscripcion`),
   CONSTRAINT `Escaneo_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`),
-  CONSTRAINT `Escaneo_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `tipoescaneo` (`idTipoEscaneo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `ResultadoEscaneo` (
   `idResultadoEscaneo` int NOT NULL AUTO_INCREMENT,
   `idEscaneo` int NOT NULL,
-  `Valor` decimal(10,2) NOT NULL,
+  `idTipoEscaneo` int NOT NULL,
+  `Valor` decimal(10,4) NOT NULL,
   PRIMARY KEY (`idResultadoEscaneo`),
-  KEY `ResultadoEscaneo_idEscaneo_idx` (`idEscaneo`),
-  CONSTRAINT `ResultadoEscaneo_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `escaneo` (`idEscaneo`)
+  KEY `Resultado_idEscaneo_idx` (`idEscaneo`),
+  KEY `Resultado_idTipoEscaneo_idx` (`idTipoEscaneo`),
+  CONSTRAINT `Resultado_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `escaneo` (`idEscaneo`),
+  CONSTRAINT `Resultado_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `tipoescaneo` (`idTipoEscaneo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `BitacoraEscaneo` (
@@ -234,17 +231,22 @@ CREATE TABLE `BitacoraEscaneo` (
   `idSitio` int NOT NULL,
   `idOperario` int NOT NULL,
   `idEscaneo` int NOT NULL,
-  `idOperacion` int NOT NULL,
+  `idTipoEscaneo` int NOT NULL,
   `FechaEscaneo` datetime NOT NULL,
-  `ResultadoAnterior` varchar(100) NOT NULL,
-  `ResultadoNuevo` varchar(100) NOT NULL,
+  `Resultado` decimal(10,4) NOT NULL,
+  `idSuscripcion` int NOT NULL,
+  `amIFaceId` int NOT NULL,
   PRIMARY KEY (`idBitacoraEscaneo`),
   KEY `idSitio_idx` (`idSitio`),
   KEY `idOperario_idx` (`idOperario`),
   KEY `idEscaneo_idx` (`idEscaneo`),
-  CONSTRAINT `BitacoraEscaneo_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `escaneo` (`idEscaneo`),
-  CONSTRAINT `BitacoraEscaneo_idOperario` FOREIGN KEY (`idOperario`) REFERENCES `usuarios` (`idOperarios`),
-  CONSTRAINT `BitacoraEscaneo_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`)
+  KEY `Bitacora_idTipoEscaneo_idx` (`idTipoEscaneo`),
+  KEY `Bitacora_idSuscripcion_idx` (`idSuscripcion`),
+  CONSTRAINT `Bitacora_idEscaneo` FOREIGN KEY (`idEscaneo`) REFERENCES `escaneo` (`idEscaneo`),
+  CONSTRAINT `Bitacora_idOperario` FOREIGN KEY (`idOperario`) REFERENCES `usuarios` (`idOperarios`),
+  CONSTRAINT `Bitacora_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`),
+  CONSTRAINT `Bitacora_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`),
+  CONSTRAINT `Bitacora_idTipoEscaneo` FOREIGN KEY (`idTipoEscaneo`) REFERENCES `tipoescaneo` (`idTipoEscaneo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `InformacionContacto` (
