@@ -5,14 +5,14 @@ from repositories.scan_repository import  ScanRepository
 class CategorizationService:
     
     @staticmethod
-    def categorize(self, evaluation_data, medical_center):
-       
+    def categorize(scanner_result, organization, site):
+        
         # Obtener el método de categorización del centro médico
-        #categorization_method = MedicalCenterRepository.get_categorization_method(medical_center)
-        categorization_method = []
+        categorization_method = MedicalCenterRepository.get_categorization_method(site, organization)
+
         # Proceso de categorización con el método adecuado
         
-        ScanRepository.set_scan("subscription_id", "scan_date")  
+        #ScanRepository.set_scan("subscription_id", "scan_date")  
         
         for measure in categorization_method:
       
@@ -21,11 +21,12 @@ class CategorizationService:
             Además se realizan las conversiones de las unidades de los measures dependiendo de cada 
             centro médico (pulgadas, centimetros...)"""
             
-            ScanRepository.set_scan_result("scan_type_id", "scan_id", "result")  
+            #ScanRepository.set_scan_result("scan_type_id", "scan_id", "result")  
            
             break
-
-        result = ""
+        
       
-        return {"result": result}
+        return categorization_method
+        
+
         

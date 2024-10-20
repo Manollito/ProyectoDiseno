@@ -1,7 +1,15 @@
 from rest_framework import serializers
-from .models import ScanResultModel
+from apps.scanner.models.medical_center_model import  MedicalCenterModel
 
-class ScanResultSerializer(serializers.ModelSerializer):
+class CategorizationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ScanResultModel
-        fields = ['scan_type_id', 'result']  # Campos a incluir en el JSON
+        model = MedicalCenterModel
+        fields = [
+            'nombre_sitio', 
+            'nombre_organizacion', 
+            'nombre_tipo_clasificacion', 
+            'nombre_tipo_escaneo', 
+            'valor', 
+            'operador', 
+            'nombre_tipo_unidad'
+        ]

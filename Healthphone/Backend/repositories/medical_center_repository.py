@@ -3,10 +3,10 @@ from apps.scanner.models.medical_center_model import MedicalCenterModel
 class MedicalCenterRepository:     
     
     @staticmethod
-    def get_categorization_method(medical_center_site, organization):
+    def get_categorization_method(site, organization):
         
-        categorization_data = MedicalCenterModel.objects.get(org = organization, 
-                                                                 site = medical_center_site)
+        """categorization_data = MedicalCenterModel.objects.get(org = organization, 
+                                                                 site = site)
         result = []
         found = []
         
@@ -26,6 +26,14 @@ class MedicalCenterRepository:
 
             
         #return result
-        return {"result": "result"}
+        return {"result": "result"}"""
+        
+        
+        
+        categorization_data = MedicalCenterModel.objects.filter(nombre_organizacion = organization, 
+                                                                nombre_sitio = site)
+    
+        return categorization_data
+    
     
     
