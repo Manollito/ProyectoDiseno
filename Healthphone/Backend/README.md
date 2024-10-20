@@ -42,4 +42,4 @@ Capa encargada de validar el token del usuario y validar si tiene los permisos n
 
 ## Repositories
 
-Es la capa que se encarga de comunicarse con la base de datos y extraer la información necesaria de las tablas
+Es la capa que se encarga de comunicarse con la base de datos y extraer la información requerida de las tablas
