@@ -54,6 +54,8 @@ SELECT
     tc.nombre AS "Nombre Tipo Clasificacion",
     r.idTipoEscaneo AS "ID Tipo Escaneo",
     te.nombre AS "Nombre Tipo Escaneo",
+    r.Value AS "Valor",
+    r.Operador AS "Operador",
     r.idTipoUnidad AS "ID Tipo Unidad",
     tu.nombre AS "Nombre Tipo Unidad"
 FROM 
