@@ -1,42 +1,42 @@
 USE proyectov1;
 
-INSERT INTO paises (Nombre) 
+INSERT INTO Paises (Nombre) 
 VALUES ('Costa Rica'), ('Panamá'), ('México');
 
-INSERT INTO organizacion (Nombre) 
+INSERT INTO Organizacion (Nombre) 
 VALUES ('Hospital Buena Vista'), ('Clinicas Por La Paz'), ('Hospital Médicos Unidos'), 
 ('Hospital La libertad'), ('Clinicas La Prosperidad'), ('Hospital El Progreso');
 
-INSERT INTO direcciones (idPais, Calle, Numero, Ciudad, Estado, CodigoPostal, Ubicacion) 
+INSERT INTO Direcciones (idPais, Calle, Numero, Ciudad, Estado, CodigoPostal, Ubicacion) 
 VALUES (1, 'La Merced', 'A10', 'Cartago', 'Cartago', '30106', POINT(-73.935242, 40.730610)), 
 (1, 'Alajuelita', 'A10', 'San José', 'San José', '30106', POINT(-73.935242, 40.730610));
 
-INSERT INTO sitios (idOrganizacion, idDireccion, Nombre) 
+INSERT INTO Sitios (idOrganizacion, idDireccion, Nombre) 
 VALUES (1, 1, 'Hospital Buena Vista parte baja'), (2, 2, 'Clinicas Por La Paz parte baja');
 
-INSERT INTO tipoescaneo (Nombre) 
+INSERT INTO TipoEscaneo (Nombre) 
 VALUES ('Temperatura'), ('Altura'), ('Peso');
 
-INSERT INTO tipoclasificacion (Nombre) 
+INSERT INTO TipoClasificacion (Nombre) 
 VALUES ('Verde'), ('Azul'), ('Rojo'), ('Amarillo'), ('Leve'), ('Grave');
 
-INSERT INTO tipounidad (Nombre) 
+INSERT INTO TipoUnidad (Nombre) 
 VALUES ('grados'), ('centímetros'), ('metros'), ('gramos'), ('kilogramos');
 
-INSERT INTO tiposstatus (Nombre) 
+INSERT INTO TiposStatus (Nombre) 
 VALUES ('Activo'), ('Inactivo'), ('Pagado'), ('Pendiente'), ('Cancelado'), ('Suspendido');
 
-INSERT INTO planes (Nombre, Descripcion, Precio)
+INSERT INTO Planes (Nombre, Descripcion, Precio)
 VALUES ('Básico', 'Descripción Plan Básico', 100.00),
 ('Premium', 'Descripción Plan Premium', 300.00);
 
-INSERT INTO suscripciones (idSitio, idPlan, Activo, idStatus) 
+INSERT INTO Suscripciones (idSitio, idPlan, Activo, idStatus) 
 VALUES (1, 1, 1, 1), (2, 2, 1, 1);
 
 INSERT INTO Plan_TipoEscaneo (idPlan, idTipoEscaneo) 
 VALUES (1, 1), (1, 2), (2, 1), (2, 2), (2, 3);
 
-INSERT INTO reglas (idTipoClasificacion, idPlan, idTipoEscaneo, Value, idTipoUnidad, isActive, FechaCreacion, Operador) 
+INSERT INTO Reglas (idTipoClasificacion, idPlan, idTipoEscaneo, Value, idTipoUnidad, isActive, FechaCreacion, Operador) 
 VALUES (1, 1, 1, 20, 1, TRUE, CURDATE(), '<'), (2, 1, 1, 20, 1, TRUE, CURDATE(), '='), (3, 1, 1, 20, 1, TRUE, CURDATE(), '>'),
 (1, 1, 2, 170, 2, TRUE, CURDATE(), '<'), (2, 1, 2, 170, 2, TRUE, CURDATE(), '='), (3, 1, 2, 170, 2, TRUE, CURDATE(), '>'),
 (5, 2, 1, 30, 2, TRUE, CURDATE(), '<'), (6, 2, 1, 30, 2, TRUE, CURDATE(), '>'),
