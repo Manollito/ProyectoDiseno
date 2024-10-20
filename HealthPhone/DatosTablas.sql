@@ -47,17 +47,15 @@ VALUES (1, 1, 1, 20, 1, TRUE, CURDATE(), '<'), (2, 1, 1, 20, 1, TRUE, CURDATE(),
 
 CREATE VIEW view_resultados AS
 SELECT 
-    s.nombre AS "Nombre Sitio",
-    o.nombre AS "Nombre Organizacion",
-    p.nombre AS "Nombre Plan",
-    r.idTipoClasificacion AS "ID Tipo Clasificacion",
-    tc.nombre AS "Nombre Tipo Clasificacion",
-    r.idTipoEscaneo AS "ID Tipo Escaneo",
-    te.nombre AS "Nombre Tipo Escaneo",
+    s.nombre AS "Nombre_Sitio",
+    o.nombre AS "Nombre_Organizacion",
+    tc.nombre AS "Nombre_Tipo_Clasificacion",
+    r.idTipoEscaneo AS "ID_Tipo_Escaneo",
+    te.nombre AS "Nombre_Tipo_Escaneo",
     r.Value AS "Valor",
     r.Operador AS "Operador",
-    r.idTipoUnidad AS "ID Tipo Unidad",
-    tu.nombre AS "Nombre Tipo Unidad"
+    tu.nombre AS "Nombre_Tipo_Unidad",
+    su.idSuscripciones AS "idSuscripcion"
 FROM 
     Sitios s
 JOIN 
