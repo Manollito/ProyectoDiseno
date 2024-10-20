@@ -1,5 +1,3 @@
-USE proyectov1;
-
 INSERT INTO Paises (Nombre) 
 VALUES ('Costa Rica'), ('Panamá'), ('México');
 
@@ -47,6 +45,7 @@ VALUES (1, 1, 1, 20, 1, TRUE, CURDATE(), '<'), (2, 1, 1, 20, 1, TRUE, CURDATE(),
 
 CREATE VIEW view_resultados AS
 SELECT 
+    ROW_NUMBER() OVER () AS id,  -- Genera un ID secuencial para cada fila
     s.nombre AS "Nombre_Sitio",
     o.nombre AS "Nombre_Organizacion",
     tc.nombre AS "Nombre_Tipo_Clasificacion",
@@ -55,7 +54,7 @@ SELECT
     r.Value AS "Valor",
     r.Operador AS "Operador",
     tu.nombre AS "Nombre_Tipo_Unidad",
-    su.idSuscripciones AS "idSuscripcion"
+    su.idSuscripciones AS "id_Suscripcion"
 FROM 
     Sitios s
 JOIN 
@@ -74,10 +73,6 @@ JOIN
     TipoUnidad tu ON r.idTipoUnidad = tu.idTipoUnidad;
 
 SELECT * FROM view_resultados;
-
-
-
-
 
 -- --------------------------Otros valores-----------------------
 INSERT INTO metodopago (Nombre) 
