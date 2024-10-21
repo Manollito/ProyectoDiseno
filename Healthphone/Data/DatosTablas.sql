@@ -28,8 +28,8 @@ INSERT INTO Planes (Nombre, Descripcion, Precio)
 VALUES ('Básico', 'Descripción Plan Básico', 100.00),
 ('Premium', 'Descripción Plan Premium', 300.00);
 
-INSERT INTO Suscripciones (idSitio, idPlan, Activo, idStatus) 
-VALUES (1, 1, 1, 1), (2, 2, 1, 1);
+INSERT INTO Suscripciones (idSitio, idPlan, Activo, idStatus, FechaInicio, FechaFin) 
+VALUES (1, 1, 1, 1, '2024-10-10', '2025-10-10'), (2, 2, 1, 1,'2024-10-10', '2024-10-10');
 
 INSERT INTO Plan_TipoEscaneo (idPlan, idTipoEscaneo) 
 VALUES (1, 1), (1, 2), (2, 1), (2, 2), (2, 3);
@@ -73,19 +73,3 @@ JOIN
     TipoUnidad tu ON r.idTipoUnidad = tu.idTipoUnidad;
 
 SELECT * FROM view_resultados;
-
--- --------------------------Otros valores-----------------------
-INSERT INTO metodopago (Nombre) 
-VALUES ('PayPal'), ('Stripe'), ('MercadoPago'), ('Yappy');
-
-INSERT INTO operarios (Nombre, Contrasena, idStatus) 
-VALUES ('Juan Carlos Rojas', '12345678', 1), ('Maria Magdalena Rivas', '12345678', 1), ('Juan Carlos Rojas', '12345678', 1), 
-('Juan Carlos Rojas', '12345678', 2),('Juan Carlos Rojas', '12345678', 2), ('Juan Carlos Rojas', '12345678', 2);
-
-INSERT INTO tipocontacto (Nombre) 
-VALUES ('Telefono'), ('Correo'), ('Fax'), ('Redes Sociales');
-
-INSERT INTO informacioncontacto (idTipoContacto, idContacto, TipoEntidad, Valor) 
-VALUES (1, 1, 'Organizacion', '12345678'),  (2, 1, 'Organizacion', 'correo@gmail.com'),  (1, 2, 'Organizacion', '12345678')
-,  (2, 2, 'Organizacion', 'correo@gmail.com'),  (1, 1, 'Operario', '12345678'),  (2, 1, 'Operario', 'correo@gmail.com')
-,  (1, 2, 'Operario', '12345678'),  (2, 2, 'Operario', 'correo@gmail.com');
