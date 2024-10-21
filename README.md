@@ -70,3 +70,9 @@
 
 28. Se requerirá un manual de usuario para el uso normal y cotidiano, por el lado de los administradores se les brindará un manual de guía de administración del sistema, y para los programadores se tendrá un documento de diseño técnico , conteniendo las arquitecturas usadas, diagramas de componente, y detalles de los módulos usados, tanto en la parte del FrontEnd como el BackEnd.
 29. Por el método de control de documentación para actualizarla y en mantenimiento, podría usarse Confluence, pues es bastante práctica para control de documentación, además de ser compatible con Jira, permite organizar la documentación de forma jerárquica, tiene características como historial de versiones y, por si fuera poco, también permite ver quiénes hacen los cambios y revertir a antiguas versiones. Por último, sus características de colaboración son muy efectivas para trabajar en grupos y mantener los datos como tal.
+
+# Datos de Informe
+
+![alt text](Images/Image1.png)
+
+![alt text](Images/Image2.png)
