@@ -180,26 +180,22 @@ CREATE TABLE `Reglas` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Regla_Organizacion` (
-  `idReglaOrganizacion` int NOT NULL AUTO_INCREMENT,
   `idOrganizacion` int NOT NULL,
   `idRegla` int NOT NULL,
-  PRIMARY KEY (`idReglaOrganizacion`),
-  KEY `idOrganizacion_idx` (`idOrganizacion`),
-  KEY `idRegla_idx` (`idRegla`),
-  CONSTRAINT `ReglaOrg_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `Organizacion` (`idOrganizacion`),
-  CONSTRAINT `ReglaOrg_idRegla` FOREIGN KEY (`idRegla`) REFERENCES `Reglas` (`idReglasClasificacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+  PRIMARY KEY (`idOrganizacion`,`idRegla`),
+  KEY `idRegOrg_Regla_idx` (`idRegla`),
+  CONSTRAINT `idRegOrg_Organizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`),
+  CONSTRAINT `idRegOrg_Regla` FOREIGN KEY (`idRegla`) REFERENCES `reglas` (`idReglasClasificacion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Regla_Sitio` (
-  `idReglaSitio` int NOT NULL AUTO_INCREMENT,
   `idSitio` int NOT NULL,
   `idRegla` int NOT NULL,
-  PRIMARY KEY (`idReglaSitio`),
-  KEY `idSitio_idx` (`idSitio`),
-  KEY `idRegla_idx` (`idRegla`),
-  CONSTRAINT `ReglaSitio_idRegla` FOREIGN KEY (`idRegla`) REFERENCES `Reglas` (`idReglasClasificacion`),
-  CONSTRAINT `ReglaSitio_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
+  PRIMARY KEY (`idSitio`,`idRegla`),
+  KEY `idRegSit_idRegla_idx` (`idRegla`),
+  CONSTRAINT `idRegSit_idRegla` FOREIGN KEY (`idRegla`) REFERENCES `reglas` (`idReglasClasificacion`),
+  CONSTRAINT `idRegSit_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `sitios` (`idSitio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Escaneo` (
   `idEscaneo` int NOT NULL AUTO_INCREMENT,
@@ -248,20 +244,13 @@ CREATE TABLE `BitacoraEscaneo` (
 
 CREATE TABLE `InformacionContacto` (
   `idInformacionContacto` int NOT NULL AUTO_INCREMENT,
-  `idOrganizacion` int DEFAULT NULL,
-  `idOperario` int DEFAULT NULL,
-  `idSitio` int DEFAULT NULL,
   `idTipoContacto` int NOT NULL,
-  `Informacion` varchar(100) NOT NULL,
+  `idContacto` int NOT NULL,
+  `TipoEntidad` enum('Organizacion','Operario') NOT NULL,
+  `Valor` varchar(255) NOT NULL,
   PRIMARY KEY (`idInformacionContacto`),
-  KEY `idOrganizacion_idx` (`idOrganizacion`),
-  KEY `idOperario_idx` (`idOperario`),
-  KEY `idSitio_idx` (`idSitio`),
-  KEY `idTipoContacto_idx` (`idTipoContacto`),
-  CONSTRAINT `InfoContacto_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `Organizacion` (`idOrganizacion`),
-  CONSTRAINT `InfoContacto_idOperario` FOREIGN KEY (`idOperario`) REFERENCES `Usuarios` (`idOperarios`),
-  CONSTRAINT `InfoContacto_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`),
-  CONSTRAINT `InfoContacto_idTipoContacto` FOREIGN KEY (`idTipoContacto`) REFERENCES `TipoContacto` (`idTipoContacto`)
+  KEY `InfoContac_idTipoContacto_idx` (`idTipoContacto`),
+  CONSTRAINT `InfoContac_idTipoContacto` FOREIGN KEY (`idTipoContacto`) REFERENCES `tipocontacto` (`idTipoContacto`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 CREATE TABLE `Metodopago` (
@@ -272,16 +261,20 @@ CREATE TABLE `Metodopago` (
 
 CREATE TABLE `Pagos` (
   `idPagos` int NOT NULL AUTO_INCREMENT,
-  `idMetodoPago` int NOT NULL,
-  `idSitio` int NOT NULL,
+  `idOrganizacion` int NOT NULL,
   `idSuscripcion` int NOT NULL,
   `Monto` decimal(10,2) NOT NULL,
-  `FechaPago` datetime NOT NULL,
+  `FechaPago` date NOT NULL,
+  `idMetodoPago` int NOT NULL,
+  `idStatus` int NOT NULL,
+  `checksum` varchar(64) NOT NULL,
   PRIMARY KEY (`idPagos`),
-  KEY `idMetodoPago_idx` (`idMetodoPago`),
-  KEY `idSitio_idx` (`idSitio`),
+  KEY `idOrganizacion_idx` (`idOrganizacion`),
   KEY `idSuscripcion_idx` (`idSuscripcion`),
-  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `Metodopago` (`idMetodoPago`),
-  CONSTRAINT `Pagos_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`),
-  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `Suscripciones` (`idSuscripciones`)
+  KEY `idMetodoPago_idx` (`idMetodoPago`),
+  KEY `idStatus_idx` (`idStatus`),
+  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `metodopago` (`idMetodoPago`),
+  CONSTRAINT `Pagos_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`),
+  CONSTRAINT `Pagos_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `tiposstatus` (`idTiposStatus`),
+  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
