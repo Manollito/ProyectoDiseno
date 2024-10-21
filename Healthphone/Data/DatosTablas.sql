@@ -1,3 +1,5 @@
+USE `proyectov1`;
+
 INSERT INTO Paises (Nombre) 
 VALUES ('Costa Rica'), ('Panamá'), ('México');
 
@@ -73,3 +75,48 @@ JOIN
     TipoUnidad tu ON r.idTipoUnidad = tu.idTipoUnidad;
 
 SELECT * FROM view_resultados;
+
+-- Otros valores
+
+INSERT INTO Organizaciondirecciones (Nombre, idOrganizacion, idDireccion, isActve) 
+VALUES ('Hospital Buena Vista Costa Rica', 1, 1, TRUE), 
+('Hospital Buena Vista Panamá', 1, 1, FALSE), 
+('Hospital Buena Vista México', 1, 1, FALSE);
+
+INSERT INTO Caracteristicas (Nombre, TipoValor) 
+VALUES ('Disponibilidad', "INT");
+
+INSERT INTO TipoMoneda (Nombre, Simbolo) 
+VALUES ('Colón', "CRC"), ('Dolar', "USD");
+
+INSERT INTO TiposStatus (Nombre) 
+VALUES ('Activo'), ('Inactivo');
+
+INSERT INTO TipoContacto (Nombre) 
+VALUES ('Celular'), ('Fax'), ('Correo');
+
+INSERT INTO Usuarios (idStatus, EsOperador, Nombre, Contrasena) 
+VALUES (1, TRUE, 'Manuel', "ksdanjwn2891jbd"), 
+(2, TRUE, 'Carlos', 'sjdklakj892719jsla'), 
+(1, FALSE, 'Hospital', 'jnsalkdklañ8293ks');
+
+INSERT INTO Plan_Calendar (idPlan, FechaInicio, FechaFin) 
+VALUES (1,'2024-10-10', '2025-10-10'), (2, '2024-10-10', '2024-10-10');
+
+INSERT INTO Planes_Caracteriscticas (idPlan, idCaracteristica, `Values`) 
+VALUES (1, 1, '1000'), (2, 1, '2000');
+
+INSERT INTO Regla_Organizacion (idOrganizacion, idRegla) 
+VALUES (1, 1), (2, 1);
+
+INSERT INTO Regla_Organizacion (idOrganizacion, idRegla) 
+VALUES (1, 1), (2, 1);
+
+INSERT INTO Regla_Sitio (idSitio, idRegla) 
+VALUES (1, 1), (2, 1);
+
+INSERT INTO Metodopago (Nombre) 
+VALUES ('PayPal');
+
+INSERT INTO InformacionContacto (idTipoContacto, idContacto, TipoEntidad, Valor) 
+VALUES (1, 4, 'Organizacion', '1234-5678'), (1, 1, 'Operario', '1234-5678');
