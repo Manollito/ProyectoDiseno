@@ -120,6 +120,8 @@ CREATE TABLE `Suscripciones` (
   `idPlan` int NOT NULL,
   `Activo` tinyint NOT NULL,
   `idStatus` int NOT NULL,
+  `FechaInicio` date NOT NULL,
+  `FechaFin` date NOT NULL,
   PRIMARY KEY (`idSuscripciones`),
   KEY `idPlan_idx` (`idPlan`),
   KEY `idSitio_idx` (`idSitio`),
@@ -274,18 +276,25 @@ CREATE TABLE `Metodopago` (
 
 CREATE TABLE `Pagos` (
   `idPagos` int NOT NULL AUTO_INCREMENT,
-  `idMetodoPago` int NOT NULL,
-  `idSitio` int NOT NULL,
+  `idOrganizacion` int NOT NULL,
   `idSuscripcion` int NOT NULL,
   `Monto` decimal(10,2) NOT NULL,
-  `FechaPago` datetime NOT NULL,
+  `FechaPago` date NOT NULL,
+  `idMetodoPago` int NOT NULL,
+  `idStatus` int NOT NULL,
+  `checksum` varchar(64) NOT NULL,
+  `idMoneda` int NOT NULL,
   PRIMARY KEY (`idPagos`),
-  KEY `idMetodoPago_idx` (`idMetodoPago`),
-  KEY `idSitio_idx` (`idSitio`),
+  KEY `idOrganizacion_idx` (`idOrganizacion`),
   KEY `idSuscripcion_idx` (`idSuscripcion`),
-  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `Metodopago` (`idMetodoPago`),
-  CONSTRAINT `Pagos_idSitio` FOREIGN KEY (`idSitio`) REFERENCES `Sitios` (`idSitio`),
-  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `Suscripciones` (`idSuscripciones`)
+  KEY `idMetodoPago_idx` (`idMetodoPago`),
+  KEY `idStatus_idx` (`idStatus`),
+  KEY `idMoneda_idx` (`idMoneda`),
+  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `metodopago` (`idMetodoPago`),
+  CONSTRAINT `Pagos_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`),
+  CONSTRAINT `Pagos_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `tiposstatus` (`idTiposStatus`),
+  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`),
+  CONSTRAINT `Pagos_idMoneda` FOREIGN KEY (`idMoneda`) REFERENCES `TipoMoneda` (`idTipoMoneda`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 
 
@@ -323,7 +332,7 @@ VALUES ('Básico', 'Descripción Plan Básico', 100.00),
 ('Premium', 'Descripción Plan Premium', 300.00);
 
 INSERT INTO Suscripciones (idSitio, idPlan, Activo, idStatus) 
-VALUES (1, 1, 1, 1), (2, 2, 1, 1);
+VALUES (1, 1, 1, 1, '2024-10-10', '2025-10-10'), (2, 2, 1, 1,'2024-10-10', '2024-10-10');
 
 INSERT INTO Plan_TipoEscaneo (idPlan, idTipoEscaneo) 
 VALUES (1, 1), (1, 2), (2, 1), (2, 2), (2, 3);
