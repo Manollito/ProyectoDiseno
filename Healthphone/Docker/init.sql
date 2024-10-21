@@ -331,7 +331,7 @@ INSERT INTO Planes (Nombre, Descripcion, Precio)
 VALUES ('Básico', 'Descripción Plan Básico', 100.00),
 ('Premium', 'Descripción Plan Premium', 300.00);
 
-INSERT INTO Suscripciones (idSitio, idPlan, Activo, idStatus) 
+INSERT INTO Suscripciones (idSitio, idPlan, Activo, idStatus, FechaInicio, FechaFin) 
 VALUES (1, 1, 1, 1, '2024-10-10', '2025-10-10'), (2, 2, 1, 1,'2024-10-10', '2024-10-10');
 
 INSERT INTO Plan_TipoEscaneo (idPlan, idTipoEscaneo) 
