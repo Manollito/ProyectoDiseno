@@ -24,7 +24,9 @@ Es la capa que contiene los servicios principales de la app
 ### Scanner
 
 Contiene la lógica principal del scanner, tiene los endpoints necesarios para comunicarse con el cliente y servicios de terceros (AWS).
-Utiliza el patron asincronico request-response, recibe la solicitud por parte del cliente, le respondé que realizará el proceso y cuando está listo le comunica por sns
+
+Utiliza el patron asincronico request-response, recibe la solicitud por parte del cliente, le respondé que realizará el proceso y cuando está listo le comunica por sns.
+
 Tiene los modelos y serializadores para conectarse con la base de datos mediante un ORM y realizar las consultas correspondientes
 
 #### Models
@@ -49,8 +51,10 @@ Serializa los datos extraidos de la base de la categorización
 
 ### Payments
 
-Contiene la logica para las conexiones con los distintos metodos de pago
-Tiene los servicios para realizar los pagos y los webhooks a los cuales se notifica la realización del pago
+Contiene la logica para las conexiones con los distintos metodos de pago.
+
+Tiene los servicios para realizar los pagos y los webhooks a los cuales se notifica la realización del pago.
+
 Utiliza un patron factory para la creación de los distintos metodos de pago
 
 
