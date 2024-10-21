@@ -1,3 +1,6 @@
+CREATE DATABASE  IF NOT EXISTS `proyectov1`;
+USE `proyectov1`;
+
 CREATE TABLE `Paises` (
   `idPaises` int NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(100) NOT NULL,
@@ -118,6 +121,8 @@ CREATE TABLE `Suscripciones` (
   `idPlan` int NOT NULL,
   `Activo` tinyint NOT NULL,
   `idStatus` int NOT NULL,
+  `FechaInicio` date NOT NULL,
+  `FechaFin` date NOT NULL,
   PRIMARY KEY (`idSuscripciones`),
   KEY `idPlan_idx` (`idPlan`),
   KEY `idSitio_idx` (`idSitio`),
@@ -268,13 +273,16 @@ CREATE TABLE `Pagos` (
   `idMetodoPago` int NOT NULL,
   `idStatus` int NOT NULL,
   `checksum` varchar(64) NOT NULL,
+  `idMoneda` int NOT NULL,
   PRIMARY KEY (`idPagos`),
   KEY `idOrganizacion_idx` (`idOrganizacion`),
   KEY `idSuscripcion_idx` (`idSuscripcion`),
   KEY `idMetodoPago_idx` (`idMetodoPago`),
   KEY `idStatus_idx` (`idStatus`),
+  KEY `idMoneda_idx` (`idMoneda`),
   CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `metodopago` (`idMetodoPago`),
   CONSTRAINT `Pagos_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`),
   CONSTRAINT `Pagos_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `tiposstatus` (`idTiposStatus`),
-  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`)
+  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`),
+  CONSTRAINT `Pagos_idMoneda` FOREIGN KEY (`idMoneda`) REFERENCES `TipoMoneda` (`idTipoMoneda`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
