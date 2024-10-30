@@ -290,10 +290,10 @@ CREATE TABLE `Pagos` (
   KEY `idMetodoPago_idx` (`idMetodoPago`),
   KEY `idStatus_idx` (`idStatus`),
   KEY `idMoneda_idx` (`idMoneda`),
-  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `metodopago` (`idMetodoPago`),
-  CONSTRAINT `Pagos_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `organizacion` (`idOrganizacion`),
-  CONSTRAINT `Pagos_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `tiposstatus` (`idTiposStatus`),
-  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `suscripciones` (`idSuscripciones`),
+  CONSTRAINT `Pagos_idMetodoPago` FOREIGN KEY (`idMetodoPago`) REFERENCES `Metodopago` (`idMetodoPago`),
+  CONSTRAINT `Pagos_idOrganizacion` FOREIGN KEY (`idOrganizacion`) REFERENCES `Organizacion` (`idOrganizacion`),
+  CONSTRAINT `Pagos_idStatus` FOREIGN KEY (`idStatus`) REFERENCES `TiposStatus` (`idTiposStatus`),
+  CONSTRAINT `Pagos_idSuscripcion` FOREIGN KEY (`idSuscripcion`) REFERENCES `Suscripciones` (`idSuscripciones`),
   CONSTRAINT `Pagos_idMoneda` FOREIGN KEY (`idMoneda`) REFERENCES `TipoMoneda` (`idTipoMoneda`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;
 

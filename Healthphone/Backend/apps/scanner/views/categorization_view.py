@@ -26,7 +26,7 @@ class CategorizationView(APIView):
         
         organization = request.data.get('organization')
         site = request.data.get('site')
-        
+     
         categorization_result = CategorizationService.categorize("scanner_result", organization, site)
         
         result = CategorizationSerializer(categorization_result, many=True)
