@@ -1,12 +1,25 @@
 from repositories.medical_center_repository import MedicalCenterRepository
 from repositories.scan_repository import  ScanRepository
-
+import re
 
 class CategorizationService:
     
     @staticmethod
     def categorize(scanner_result, organization, site):
         
+        # Expresión regular para capturar medida y cantidad
+        patron = r"(Temperatura|Peso|Altura):\s*([\d.]+)\s*([°\w]+)"
+
+        # Extraer datos
+        resultados = re.findall(patron, scanner_result)
+
+        # Convertir a diccionario para acceder fácilmente
+        measures = {medida: {"cantidad": float(cantidad), "unidad": unidad} for medida, cantidad, unidad in resultados}
+
+        result = {"result": "Leve", "measures": measures}
+        
+        return result
+    
         # Obtener el método de categorización del centro médico
         categorization_method = MedicalCenterRepository.get_categorization_method(site, organization)
 

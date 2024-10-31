@@ -88,6 +88,9 @@ DATABASES = {
     }
 }
 
+# CHATGPT CREDENTIALS
+OPENAI_API_KEY = config('CHATGPT')  # Si utilizas variables de entorno
+
 # AWS S3 Configuration
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')

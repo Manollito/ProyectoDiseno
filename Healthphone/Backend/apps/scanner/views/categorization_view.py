@@ -12,30 +12,46 @@ from aws_services.sns_service import SNSService
 from rest_framework.response import Response
 from rest_framework import status
 
+from openai import OpenAI
+#import openai
 
 class CategorizationView(APIView):
-    
-    #sns_service = SNSService()
+    client = OpenAI(
+        api_key = settings.OPENAI_API_KEY
+            )
     
     def post(self, request):
-
-        """client_id = request.data.get('client_id')  # Id del cliente al que se notifica por SNS
-        scan_result = request.data.get('scan_result')  # Resultado del scaneo de sagemaker
-        medical_center = request.data.get('medical_center')  # Nombre del centro medico
-        """
         
-        organization = request.data.get('organization')
-        site = request.data.get('site')
-     
-        categorization_result = CategorizationService.categorize("scanner_result", organization, site)
+        prompt = """Supone que estas escaneando a una persona, dime la temperatura, altura y peso. Responde solo en formato
+            Temperatura: ...  Peso: ... Altura..."""
+            
+        #organization = request.data.get('organization')
+        #site = request.data.get('site')
         
-        result = CategorizationSerializer(categorization_result, many=True)
+        try:
+            # Realiza una solicitud al modelo Davinci
+            response = self.client.chat.completions.create(
+                model="gpt-4o-mini",  # Puedes usar "davinci" aquí si no estás usando el modelo de chat
+                messages=[{"role": "user", "content": prompt}]
+            )
+            
+            # Extrae solo el contenido del mensaje para serializarlo correctamente
+            scanner_result = response.choices[0].message.content
+            
+            categorization_result = CategorizationService.categorize(scanner_result, "organization", "site")
+            
+            # Devuelve el contenido en JSON
+            return JsonResponse({'response': categorization_result})
         
-        #self.sns_service.notify_client(categorization_result, client_id)
+            #result = CategorizationSerializer(categorization_result, many=True)
+            
+            #self.sns_service.notify_client(categorization_result, client_id)
 
-        #return HttpResponse(status=204)  # 204 No Content
-        
-        return JsonResponse({"Resultado":  result.data})
-
-
+            #return HttpResponse(status=204)  # 204 No Content
+            
+            #return JsonResponse({"Resultado":  result.data})
+                        
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+      
     
