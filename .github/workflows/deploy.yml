@@ -27,7 +27,7 @@ jobs:
         with:
           context: ./docker  # Asegúrate que apunte al docker-compose correctamente
           push: true
-          tags: KendallRC/Healthphone:latest
+          tags: kendallrc/healthphone:latest
 
       - name: Deploy to Server
         env:
