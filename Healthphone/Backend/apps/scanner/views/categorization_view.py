@@ -21,6 +21,7 @@ class CategorizationView(APIView):
             )
     
     def post(self, request):
+        return JsonResponse({'response': "categorization_result"})
         
         prompt = """Supone que estas escaneando a una persona, dime la temperatura, altura y peso. Responde solo en formato
             Temperatura: ...  Peso: ... Altura..."""
