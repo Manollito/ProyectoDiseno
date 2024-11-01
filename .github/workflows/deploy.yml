@@ -97,6 +97,7 @@ jobs:
             SERVER_IP: 192.168.18.168
 
         run: |
+          env
           mkdir -p ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
