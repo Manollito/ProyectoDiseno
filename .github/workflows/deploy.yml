@@ -29,9 +29,18 @@ jobs:
           push: true
           tags: kendallrc/healthphone:latest
 
-      - name: Deploy to Server
-        env:
-            SSH_KEY: "-----BEGIN OPENSSH PRIVATE KEY-----
+  deploy:
+    needs: build  # Cambia 'publish' a 'build' para que dependa del trabajo anterior
+    name: Deploy Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install SSH Keys
+        # Consulta este hilo para entender por qué es necesario:
+        # <https://stackoverflow.com/a/70447517>
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "-----BEGIN OPENSSH PRIVATE KEY-----
               b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
               NhAAAAAwEAAQAAAgEAshej/Q5fiJwIv18Ym+PLEf2VR6L2tOzDH6F8o2hbwiBOGsg8MBGF
               0YolsY3/CYr+ecxX//yIKNqcOm4uyumoEdogE9wXw4HhouU4GjuG8qWczzgLez7zozsgfS
@@ -92,17 +101,11 @@ jobs:
               Qe/0/GmLo4IPSwAAAAFBfnU6kRfYVpYWk1TQ0lUMFdUWEhIS3paWlRQUFNGY2hFcyJvbWV
               jTXNBMjNTcy4M8gkDgMAgICBgUEAEEAIAAACgMAL2lhbG96YWxhbW5hdXRpb24uZXh0LmN
               vbXAvbnVmZm9yYWh0YW5hbWVyaG9tZS9zZWxkZXJzd3BmcHNvZnNhbm1lc3RhY2luY2U=
-              -----END OPENSSH PRIVATE KEY-----"
-            SSH_USER: "Pc Lenovo"
-            SERVER_IP: 192.168.18.168
+              -----END OPENSSH PRIVATE KEY-----" > ~/.ssh/id_rsa
+          ssh-keyscan -H 192.168.18.168 > ~/.ssh/known_hosts
 
-        run: |
-          env
-          mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H $SERVER_IP >> ~/.ssh/known_hosts
+      - name: Connect and Pull
+        run: ssh "Pc Lenovo"@192.168.18.168 "cd 'C:\Users\Pc Lenovo\OneDrive - Estudiantes ITCR\TEC\II Semestre 2024\Diseño\Proyecto\ProyectoDiseno\Healthphone\Docker' && docker compose pull && docker compose up -d && exit"
 
-          # Actualizar contenedor
-          ssh -i ~/.ssh/id_rsa $SSH_USER@$SERVER_IP "cd 'C:\Users\Pc Lenovo\OneDrive - Estudiantes ITCR\TEC\II Semestre 2024\Diseño\Proyecto\ProyectoDiseno\Healthphone\Docker' && docker-compose pull && docker-compose up -d"
-
+      - name: Cleanup
+        run: rm -rf ~/.ssh
