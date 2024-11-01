@@ -15,4 +15,4 @@ jobs:
 
       - name: Build and run Docker container
         run: |
-          docker-compose -f ./docker/docker-compose.yml up -d --build
+          docker-compose -f ./Healthphone/docker/docker-compose.yml up -d --build
