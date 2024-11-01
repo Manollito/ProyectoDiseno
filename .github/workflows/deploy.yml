@@ -41,7 +41,7 @@ jobs:
         run: |
           env
           mkdir -p ~/.ssh
-          echo ""-----BEGIN OPENSSH PRIVATE KEY-----
+          echo "-----BEGIN OPENSSH PRIVATE KEY-----
           b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
           NhAAAAAwEAAQAAAgEAshej/Q5fiJwIv18Ym+PLEf2VR6L2tOzDH6F8o2hbwiBOGsg8MBGF
           0YolsY3/CYr+ecxX//yIKNqcOm4uyumoEdogE9wXw4HhouU4GjuG8qWczzgLez7zozsgfS
