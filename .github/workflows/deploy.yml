@@ -39,10 +39,11 @@ jobs:
         # Consulta este hilo para entender por qué es necesario:
         # <https://stackoverflow.com/a/70447517>
         run: |
-          pwd
-          whoami
-
-          mkdir -p ~/.ssh || echo "Failed to create directory. Check permissions or existing directory."
+          echo "Directorio de trabajo: $(pwd)"
+          echo "Usuario actual: $(whoami)"
+          echo "Creando directorio en $HOME/.ssh"
+          mkdir -p $HOME/.ssh && echo "Directorio creado." || echo "Falló al crear el directorio."
+          ls -la $HOME
           echo "-----BEGIN OPENSSH PRIVATE KEY-----
           b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
           NhAAAAAwEAAQAAAgEAshej/Q5fiJwIv18Ym+PLEf2VR6L2tOzDH6F8o2hbwiBOGsg8MBGF
