@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted]  # Indica que se usará el runner auto-hospedado
+    runs-on: ubuntu-latest  # Usa un runner de GitHub con Ubuntu
 
     steps:
       - name: Checkout code
