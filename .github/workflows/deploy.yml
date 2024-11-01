@@ -39,7 +39,6 @@ jobs:
         # Consulta este hilo para entender por qué es necesario:
         # <https://stackoverflow.com/a/70447517>
         run: |
-          env
           mkdir -p ~/.ssh
           echo "-----BEGIN OPENSSH PRIVATE KEY-----
           b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
