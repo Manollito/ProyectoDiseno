@@ -81,8 +81,10 @@ jobs:
             +cbEkt1Uar8AAAARcGMgbGVub3ZvQEtlbmRhbGwBAg==
             -----END OPENSSH PRIVATE KEY-----"  # Agrega una clave SSH privada en Secrets
         run: |
-          ssh -o StrictHostKeyChecking=no -i $SSH_KEY "Pc Lenovo"@192.168.18.168 "
-          cd 'C:\Users\Pc Lenovo\OneDrive - Estudiantes ITCR\TEC\II Semestre 2024\Diseño\Proyecto\ProyectoDiseno\Healthphone\Docker' && \
-          docker-compose pull && \
-          docker-compose up -d
+          echo "$SSH_KEY" > ssh_key
+          chmod 600 ssh_key
+          ssh -o StrictHostKeyChecking=no -i ssh_key "Pc Lenovo"@192.168.18.168 "
+            cd 'C:\Users\Pc Lenovo\OneDrive - Estudiantes ITCR\TEC\II Semestre 2024\Diseño\Proyecto\ProyectoDiseno\Healthphone\Docker' && \
+            docker-compose pull && \
+            docker-compose up -d
           "
