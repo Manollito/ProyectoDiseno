@@ -39,7 +39,7 @@ jobs:
         # Consulta este hilo para entender por qué es necesario:
         # <https://stackoverflow.com/a/70447517>
         run: |
-          mkdir -p ~/.ssh
+          mkdir -p ~/.ssh || echo "Failed to create directory. Check permissions or existing directory."
           echo "-----BEGIN OPENSSH PRIVATE KEY-----
           b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
           NhAAAAAwEAAQAAAgEAshej/Q5fiJwIv18Ym+PLEf2VR6L2tOzDH6F8o2hbwiBOGsg8MBGF
