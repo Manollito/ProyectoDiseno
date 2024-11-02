@@ -111,8 +111,8 @@ jobs:
           chmod 600 $HOME/.ssh/id_rsa
       - name: Escanear el host
         run: |
-          ssh-keyscan -p 22 "Pc Lenovo"@192.168.18.168 >> $HOME/.ssh/known_hosts
-          sudo apt-get install sshpass
+          ssh-keyscan -p 22 192.168.18.168 >> $HOME/.ssh/known_hosts
+         
       - name: Connect and Pull
         run: ssh "Pc Lenovo"@192.168.18.168 "cd 'C:\Users\Pc Lenovo\OneDrive - Estudiantes ITCR\TEC\II Semestre 2024\Diseño\Proyecto\ProyectoDiseno\Healthphone\Docker' && docker compose pull && docker compose up -d && exit"
 
