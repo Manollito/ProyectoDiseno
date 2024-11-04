@@ -24,7 +24,7 @@ class CategorizationView(APIView):
         
         response_data = {
         "response": {
-            "result": "Leve",
+            "result": "Grave",
             "measures": {
                 "Temperatura": {
                     "cantidad": 36.7,
