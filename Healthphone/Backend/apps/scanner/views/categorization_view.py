@@ -21,27 +21,6 @@ class CategorizationView(APIView):
             )
     
     def post(self, request):
-        
-        response_data = {
-        "response": {
-            "result": "Grave",
-            "measures": {
-                "Temperatura": {
-                    "cantidad": 36.7,
-                    "unidad": "°C"
-                },
-                "Peso": {
-                    "cantidad": 70,
-                    "unidad": "kg"
-                },
-                "Altura": {
-                    "cantidad": 175,
-                    "unidad": "cm"
-                }
-            }
-        }
-    }
-        return JsonResponse(response_data)
        
         prompt = """Supone que estas escaneando a una persona, dime la temperatura, altura y peso. Responde solo en formato
             Temperatura: ...  Peso: ... Altura..."""
