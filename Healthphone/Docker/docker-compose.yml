@@ -11,6 +11,8 @@ services:
       - mysql
     links:
       - mysql
+    env_file:
+      - ../backend/.env
 
   # MySQL Database
   mysql:
