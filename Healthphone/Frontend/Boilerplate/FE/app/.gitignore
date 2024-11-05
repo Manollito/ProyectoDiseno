@@ -1,9 +1,0 @@
-/build
-proguard-rules.pro
-res/mipmap-anydpi/ic_launcher_round.xml
-res/mipmap-hdpi
-res/mipmap-mdpi
-res/mipmap-xhdpi
-res/mipmap-xxhdpi
-res/mipmap-xxxhdpi
-res/xml
